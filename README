@@ -1,0 +1,20 @@
+MOTIVATION TO CREATE THIS TOOL
+==============================
+
+I need a new repository which contains specific directories with history in existing repository.
+I make this tool.
+
+HOW TO USE git2git
+==================
+
+ $ cd git/existingrepository.git
+ $ git2git.sh ${directory to migrate} ${branchname to save new commit object}
+ $ git branch
+${branchname to save new commit object}
+* master
+ $ cd ..
+ $ mkdir newrepo
+ $ cd newrepo
+ $ git init
+ $ git fetch ../existingrepository.git ${branchname to save new commit object} master
+ $ git co -b master FETCH_HEAD
