@@ -36,6 +36,7 @@ tree=$(gettree ${origin_head} ${dir})
 parent=$(commit_tree "${tree}" "${msg}")
 
 for i in $(git log --format=%H --reverse HEAD -- ${dir} | tail -n+2); do
+    echo $i > /dev/stderr
     msg=$(getmsg ${i})
     tree=$(gettree $i ${dir})
     parent=$(commit_tree "${tree}" "${msg}" "${parent}")
